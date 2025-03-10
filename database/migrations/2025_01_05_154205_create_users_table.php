@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('profile_image')->default('default.png');
             $table->string('password_hash');
             $table->foreignId('role_id')->nullable()->index();
-            $table->foreign('role_id', 'fk_user_roles')->references('id')->on('roles')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('role_id', 'fk_user_roles')->references('id')->on('roles')->onDelete('CASCADE')->onUpdate('CASCADE')->default(3);
             $table->timestamps();
         });
 

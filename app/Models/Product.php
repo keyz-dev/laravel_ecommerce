@@ -10,18 +10,13 @@ class Product extends Model
         'description',
         'price',
         'stock',
-        'age_category_id',
-        'sales_category_id',
+        'category_id',
         'image',
         'discount',
     ];
 
-    public function age_category(){
-        return $this->belongsTo(AgeCategories::class, 'age_category_id');
-    }
-
-    public function sales_category(){
-        return $this->belongsTo(SalesCategory::class, 'sales_category_id');
+    public function category(){
+        return $this->belongsTo(Categories::class, 'category_id');
     }
 
     public function carts(){
