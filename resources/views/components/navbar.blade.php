@@ -4,11 +4,11 @@
 
 <header class="w-full flex flex-col fixed left-0 top-0 z-20" >
     <nav class="container flex items-center justify-between py-5 px-3 lg:px-0 relative z-10 bg-white">
-        <x-button 
+        <x-button
             type="button"
             id="toggleNavBarBtn"
             icon="<i class='fas fa-bars'></i>"
-            class="text-xl md:hidden z-10 min-w-fit min-h-fit" 
+            class="text-xl md:hidden z-10 min-w-fit min-h-fit"
         />
         <a href="{{route("home.index")}}" class="z-10 text-xl font-bold ">
             <x-logo :logo="$logo" />
@@ -29,7 +29,7 @@
                     <a href="{{route('cart.index')}}" class="relative">
                         <x-button
                             type="button"
-                            title='cart'    
+                            title='cart'
                             class="bg-transparent text-black min-w-[20px] min-h-[20px] w-[40px] h-[40px] hover:bg-accent-light rounded-full"
                             icon="<i class='fas fa-shopping-cart'></i>"
                         />
@@ -73,7 +73,7 @@
                 {{ session('cart') ? count(session('cart')) : 0 }}
             </span>
         </a>
-    </nav>  
-    
-    <x-message_toast />
+    </nav>
+
 </header>
+<x-message_toast />
