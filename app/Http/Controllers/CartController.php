@@ -48,7 +48,7 @@ class CartController extends Controller
             ]);
             $cart[$productId]['cart_id'] = $created->id;
         }
-        
+
         Session::put('cart', $cart);
         return response()->json([
             "status" => "success",
@@ -64,28 +64,28 @@ class CartController extends Controller
 
         $db_cart = Cart::find($cart_id);
         if($db_cart !== null){
-            Cart::where('id', $cart_id)->delete(); 
+            Cart::where('id', $cart_id)->delete();
         }
-        if (isset($cart[$product_id])) { 
-            unset($cart[$product_id]); 
-            session()->put('cart', $cart); 
-        } 
+        if (isset($cart[$product_id])) {
+            unset($cart[$product_id]);
+            session()->put('cart', $cart);
+        }
 
         session([
             'status' => 'success',
             "message"=>"Product removed from cart!"
         ]);
         return redirect()->back();
-    } 
+    }
 
     public function edit(Request $request)
     {
-        $cart = session()->get('cart', []); 
-        $cart_id = $request->input('cart_id'); 
-        $product_id = $request->input('product_id'); 
-        $operation = $request->input('operation'); 
+        $cart = session()->get('cart', []);
+        $cart_id = $request->input('cart_id');
+        $product_id = $request->input('product_id');
+        $operation = $request->input('operation');
 
-        if (isset($cart[$product_id])) { 
+        if (isset($cart[$product_id])) {
             if ($operation === 'add') {
                 $cart[$product_id]['quantity'] += 1;
             } else{

@@ -1,7 +1,7 @@
 
 
 function showNotification(message, type = 'success') {
-    const container = document.getElementById('notification-container');  
+    const container = document.getElementById('notification-container');
     // Create notification element
     const notification = document.createElement('div');
 
@@ -13,13 +13,13 @@ function showNotification(message, type = 'success') {
     notification.offsetHeight;
 
     notification.classList.remove('opacity-0', 'max-h-0');
-    notification.classList.add('opacity-100', 'max-h-40'); 
+    notification.classList.add('opacity-100', 'max-h-40');
 
     // Automatically hide notification after 3 seconds
     setTimeout(() => {
         notification.classList.remove('opacity-100', 'max-h-40');
         notification.classList.add('opacity-0', 'max-h-0');
-        
+
         // Remove the notification after animation
         setTimeout(() => {
             notification.remove();
@@ -39,7 +39,7 @@ $(document).ready(()=>{
             method: 'POST',
             data: formData,
             success: function(response){
-                showNotification('Product added to cart', 'success');       
+                showNotification('Product added to cart', 'success');
                 // Update cart count in header
                 cart_length = Object.keys(response.cart).length
                 $('#cart_indicator').html(cart_length)

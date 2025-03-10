@@ -26,18 +26,18 @@ class UserController extends Controller
             'gender' => 'required',
             'dob' => 'required|date|before_or_equal:today'
         ]);
-        
+
         if( $validated['gender'] == '1')
             $validated['gender'] = 'male';
-        else    
+        else
            $validated['gender'] = 'female';
-        
+
         // set the user role
-        $validated['role_id'] = 1;
+        $validated['role_id'] = 3; // 3 is the default role for users - customer
         $validated['profile_image'] = $this->file_handler($request, 'profile_image', 'profile_images');
         // Create a new user
 
-        User::create($validated);    
+        User::create($validated);
         session([
             'status' => 'success',
             "message"=>"User created successfully!"
