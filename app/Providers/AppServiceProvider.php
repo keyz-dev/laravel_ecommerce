@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Categories;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Product;
 
@@ -22,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->share('logo', asset('images/logo.png'));
         view()->share('products', Product::all());
-        view()->share('categories', require __DIR__ .'/testData.php');
+        view()->share('categories', Categories::all());
     }
 }

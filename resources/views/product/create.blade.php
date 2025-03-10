@@ -5,6 +5,6 @@
 
 @section('content')
     <form action="{{route("product.store")}}" method="post" class="mx-auto w-full md:min-w-[50%] md:max-w-[90%] lg:max-w-[90%] flex flex-col-reverse md:flex-row items-center md:items-start  justify-center h-auto gap-4 p-2 md:py-4 border" enctype="multipart/form-data">
-        <x-form  title="Create Product"/>
+        <x-form  title="Create Product" :categories="$categories"/>
     </form>
 @endsection

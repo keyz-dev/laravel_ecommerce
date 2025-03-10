@@ -7,7 +7,7 @@
                 </div>
             </div>
             <p class="text-base font-semibold">
-                {{$category['name']}}
+                {{ucfirst($category['name'])}}
             </p>
         </div>
     @endforeach

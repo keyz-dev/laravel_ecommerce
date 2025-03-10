@@ -24,6 +24,7 @@ class SaveProductRequest extends FormRequest
         return [
             'name' => 'required|string|max:64',
             'price' => 'required|numeric|decimal:0,2',
+            'category_id' => 'required|exists:categories,id',
             'description' => 'nullable|string|min:5',
             'stock' => 'required|numeric',
             'image' => 'nullable|image|mimes:jpg,png,jpeg,webp,ico,svg,jiff|max:2048',

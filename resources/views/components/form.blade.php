@@ -12,10 +12,11 @@
     <div class="w-full flex flex-col">
         <label for="category_id">Category</label>
         <select class="border-2 border-border_clr outline-none p-2 focus:border-accent transition-all bg-none ease-in-out duration-600" name="category_id" id="category_id">
-            <option value="1">Twist</option>
-            <option value="2">Braid</option>
-            <option value="3">DreadLocs</option>
-            <option value="4">Afro</option>
+            @forelse($categories as $category)
+                <option value="{{$category->id}}">{{ucfirst($category->name)}}</option>
+            @empty
+                <option value="">No category available</option>
+            @endforelse
         </select>
     </div>
 
